@@ -1,0 +1,42 @@
+# Node modules (React + Hardhat)
+node_modules/
+frontend/blockaid-ui/node_modules/
+
+# Python venv (Flask backend)
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Flask dotenv
+backend/.env
+
+# Hardhat artifacts/cache
+artifacts/
+cache/
+typechain/
+
+# Compiled contract ABIs (optional)
+frontend/blockaid-ui/src/web3/contracts/
+
+# VSCode / PyCharm / JetBrains
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# React build output (optional if deploying elsewhere)
+frontend/blockaid-ui/build/
+
+# Log and coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+
+# Test reports
+test-output/
