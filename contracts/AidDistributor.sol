@@ -1,41 +1,43 @@
-// SPDX-licence-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.21;
 
 /**
-* @title AidDistributor
-* @dev A minimal contract that lets an NGO wallet receive donaions and disburse them to pre-registered recipients. All funds are handled in the native token (MATIC on polygon)
-*
-*
-*   Extensions that I will add later:
-*       * ERC20 stable-token support
-*       * Off-chain DID verification via chainlink function
-*       * Pull-payment pattern so recipients withdraw themselves
-*       * Role-based access (Openzeppelin AccessControl)
-*/
+ * @title AidDistributor
+ * @dev   A minimal contract that lets an NGO wallet receive donations
+ *        and disburse them to pre-registered recipients.  All funds are
+ *        handled in the native token (MATIC on Polygon).
+ *
+ *        Extensions you can add later:
+ *          • ERC20 stable-token support
+ *          • Off-chain DID verification via Chainlink Functions
+ *          • Pull-payments pattern so recipients withdraw themselves
+ *          • Role-based access (OpenZeppelin AccessControl)
+ */
 
-import "@openzeppelin/contracts/access/ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-contract AidDistributor is ownable, ReentrancyGuard {
+contract AidDistributor is Ownable, ReentrancyGuard {
     struct Recipient {
-        bool registered;
-        uint64 countryCode; // example metadata
-        uint256 receivedTotal; //cumulative aid received
+        bool   registered;
+        uint64 countryCode;     // example metadata
+        uint256 receivedTotal;  // cumulative aid received
     }
 
     mapping(address => Recipient) private recipients;
 
     event RecipientRegistered(address indexed wallet, uint64 countryCode);
-    event DonationReceived(address index donor, uint256 amount);
+    event DonationReceived(address indexed donor, uint256 amount);
     event AidSent(address indexed recipient, uint256 amount);
 
-    /*--------------------Registration------------------------*/
-    ///@notice NGO (owner) registers a recipient's wallet
-    function registerRecipient(address _wallet, uint64 _ countryCode)
+    /* ---------------------------- Registration --------------------------- */
+
+    /// @notice NGO (owner) registers a recipient’s wallet
+    function registerRecipient(address _wallet, uint64 _countryCode)
         external
         onlyOwner
     {
-        require(_wallet !=address(0), "Zero address");
+        require(_wallet != address(0), "Zero address");
         require(!recipients[_wallet].registered, "Already registered");
 
         recipients[_wallet] = Recipient({
@@ -43,17 +45,18 @@ contract AidDistributor is ownable, ReentrancyGuard {
             countryCode: _countryCode,
             receivedTotal: 0
         });
-        emit RecipientRegistered(_wallet, countryCode);
+
+        emit RecipientRegistered(_wallet, _countryCode);
     }
 
     function isRegistered(address _wallet) external view returns (bool) {
         return recipients[_wallet].registered;
     }
 
-    /*--------------------Donations------------------------*/
+    /* ---------------------------- Donations ----------------------------- */
 
     /// @notice Anyone can donate native MATIC to the pool
-    recieve() external payable {
+    receive() external payable {
         emit DonationReceived(msg.sender, msg.value);
     }
 
@@ -62,11 +65,11 @@ contract AidDistributor is ownable, ReentrancyGuard {
         emit DonationReceived(msg.sender, msg.value);
     }
 
-    /*--------------------Disbursement------------------------*/
+    /* --------------------------- Disbursement --------------------------- */
 
     /**
      * @notice NGO (owner) sends aid to a registered recipient
-     * @dev Uses call{} to forward all remaining gas & prevent 2300-gas issues
+     * @dev    Uses call{} to forward all remaining gas & prevent 2300-gas issues
      */
     function distributeAid(address payable _recipient, uint256 _amount)
         external
@@ -85,7 +88,7 @@ contract AidDistributor is ownable, ReentrancyGuard {
         emit AidSent(_recipient, _amount);
     }
 
-    /*--------------------Getters------------------------*/
+    /* ----------------------------- Getters ------------------------------ */
 
     function contractBalance() external view returns (uint256) {
         return address(this).balance;
