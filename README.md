@@ -3,73 +3,86 @@
 ![BlockAid](https://img.shields.io/badge/Blockchain-Web3-blue)
 ![React](https://img.shields.io/badge/React-18.2.0-61dafb)
 ![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38b2ac)
+![Vite](https://img.shields.io/badge/Vite-4.4.5-646CFF)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-## Version Information
-- **Current Version**: 1.0.0
-- **Release Date**: December 2024
-- **React Version**: 18.2.0
-- **Web3.js Version**: 4.2.0
-- **Node.js Requirement**: 16.0.0+
-
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Quick Start](#quick-start)
-- [Installation Guide](#installation-guide)
-- [Project Structure](#project-structure)
-- [Technology Stack](#technology-stack)
-- [Configuration](#configuration)
-- [API Documentation](#api-documentation)
-- [Component Reference](#component-reference)
-- [Available Scripts](#available-scripts)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Support](#support)
-- [License](#license)
-
-## Overview
-
-BlockAid is a decentralized platform that leverages blockchain technology to create transparent, secure, and efficient aid distribution systems. Built on Ethereum, it enables donors to contribute directly to verified aid requests while ensuring complete transparency in fund allocation and utilization.
-
-### Core Capabilities
-- ✅ Wallet connection and management
-- ✅ Aid request browsing and display
-- ✅ Real-time donation progress tracking
-- ✅ Responsive design with Tailwind CSS
-- ✅ Mock data integration (v1.0.0)
-
-### Version Compatibility
-| Component | Version | Notes |
-|-----------|---------|-------|
-| React | ^18.2.0 | Functional components with hooks |
-| Web3.js | ^4.2.0 | Ethereum blockchain interaction |
-| Vite | ^4.4.5 | Build tool and dev server |
-| Tailwind CSS | ^3.3.3 | Styling framework |
-
-## Features
-
-### Core Functionality
-- **Transparent Donations**: Every transaction is recorded on the blockchain
-- **Smart Contract Integration**: Automated fund distribution and verification
-- **Real-time Tracking**: Monitor donation progress and fund utilization
-- **Wallet Integration**: MetaMask and Web3 wallet support
-- **Multi-category Aid**: Support for medical, education, disaster relief, and more
-
-### User Experience
-- **Responsive Design**: Optimized for desktop and mobile devices
-- **Intuitive Dashboard**: Clean interface for browsing aid requests
-- **Progress Visualization**: Visual progress bars and status indicators
-- **Secure Authentication**: Web3 wallet-based user authentication
-
-## Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v16 or higher)
+- Node.js 16.0.0 or higher
 - npm or yarn
-- MetaMask browser extension
-- Git
-## Project Structure
+- Modern browser with MetaMask extension
+
+
+### 📖 Table of Contents
+    Overview
+
+    Features
+
+    Project Structure
+
+    Technology Stack
+
+    Installation Guide
+
+    Configuration
+
+    Available Scripts
+
+    Components
+
+    Services
+
+    Web3 Integration
+
+    Contributing
+
+    Support
+
+    License
+### 🌟 Overview
+BlockAid is a decentralized platform that leverages blockchain technology to create transparent, secure, and efficient aid distribution systems. Built on Ethereum, it enables donors to contribute directly to verified aid requests while ensuring complete transparency in fund allocation and utilization.
+### Core Capabilities
+
+    ✅ Wallet connection and management (MetaMask)
+
+    ✅ Aid request browsing and display
+
+    ✅ Real-time donation progress tracking
+
+    ✅ Responsive design with Tailwind CSS
+
+    ✅ Mock data integration (ready for Web3)
+
+    ✅ Progress visualization and status tracking
+
+
+### ✨ Features
+## Core Functionality
+
+    Transparent Donations: Every transaction is recorded on the blockchain
+
+    Smart Contract Integration: Automated fund distribution and verification
+
+    Real-time Tracking: Monitor donation progress and fund utilization
+
+    Wallet Integration: MetaMask and Web3 wallet support
+
+    Multi-category Aid: Support for medical, education, disaster relief, and community projects
+
+## User Experience
+
+    Responsive Design: Optimized for desktop and mobile devices
+
+    Intuitive Dashboard: Clean interface for browsing aid requests
+
+    Progress Visualization: Visual progress bars and status indicators
+
+    Secure Authentication: Web3 wallet-based user authentication
+
+    Real-time Statistics: Live updates on campaign progress
+
+## 🏗️ Project Structure
 blockaid-ui/
 ├── public/                 # Static assets
 ├── src/
@@ -88,8 +101,36 @@ blockaid-ui/
 ├── package.json
 ├── tailwind.config.js   # Tailwind CSS configuration
 ├── vite.config.js       # Vite build configuration
+├── postcss.config.js    # PostCSS configuration
 └── README.md
-### Installation
+## 🛠️ Technology Stack
+### Frontend
+
+    React 18 - UI library with hooks
+
+    Vite - Build tool and dev server
+
+    Tailwind CSS - Utility-first CSS framework
+
+    Axios - HTTP client for API requests
+
+### Blockchain
+
+    Web3.js 4.2.0 - Ethereum JavaScript API
+
+    MetaMask - Wallet integration
+
+    Ethereum - Blockchain network
+
+### Development
+
+    ESLint - Code linting
+
+    PostCSS - CSS processing
+
+    Git - Version control
+
+### 📥 Installation Guide
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/blockaid-ui.git
@@ -99,4 +140,5 @@ cd blockaid-ui
 npm install
 
 # Start development server
-npm run dev
+npm run dev```
+
