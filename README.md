@@ -69,7 +69,26 @@ BlockAid is a decentralized platform that leverages blockchain technology to cre
 - npm or yarn
 - MetaMask browser extension
 - Git
-
+## Project Structure
+blockaid-ui/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/            # Images, icons, fonts
+│   ├── components/        # Reusable React components
+│   │   └── AidCard.js    # Aid request display component
+│   ├── pages/            # Page components
+│   │   └── Dashboard.js  # Main dashboard page
+│   ├── services/         # API and external services
+│   │   └── aidService.js # Aid-related API calls
+│   ├── web3/            # Blockchain interactions
+│   │   └── contract.js  # Web3 contract configuration
+│   ├── App.js           # Main App component
+│   ├── index.css        # Global styles
+│   └── index.js         # Application entry point
+├── package.json
+├── tailwind.config.js   # Tailwind CSS configuration
+├── vite.config.js       # Vite build configuration
+└── README.md
 ### Installation
 ```bash
 # Clone the repository
